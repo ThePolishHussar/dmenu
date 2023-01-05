@@ -17,15 +17,15 @@ static const char *fonts[] = {
 };
 static char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 
-static char normfgcolor[] = "#bbbbbb";
-static char normbgcolor[] = "#222222";
-static char selfgcolor[]  = "#eeeeee";
-static char selbgcolor[]  = "#005577";
+static char normfgcolor[] = "#ebdbb2";
+static char normbgcolor[] = "#1d2021";
+static char selfgcolor[]  = "#ebdbb2";
+static char selbgcolor[]  = "#458488";
 static char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
 	[SchemeNorm] = { normfgcolor, normbgcolor },
 	[SchemeSel]  = { selfgcolor,  selbgcolor  },
-	[SchemeOut]  = { "#000000",   "#00ffff" },
+	[SchemeOut]  = { selfgcolor,   "#83a598" },
 };
 
 static const unsigned int alphas[SchemeLast][2] = {
