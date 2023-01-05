@@ -23,13 +23,13 @@ static const unsigned int alphas[SchemeLast][2] = {
 };
 
 static int topbar = 1;
-static int centered = 0;
+static int centered = 1;
 static int min_width = 500;
 static int restrict_return = 0;
 static int fuzzy = 1;
 static char *prompt      = NULL;
-static unsigned int lines      = 0;
-static unsigned int lineheight = 0;
+static unsigned int lines      = 10;
+static unsigned int lineheight = 24;
 static unsigned int min_lineheight = 8;
 static unsigned int preselected = 0;
 
@@ -40,7 +40,10 @@ ResourcePref resources[] = {
 	{ "background",		STRING,		&normbgcolor },
 	{ "selforeground",	STRING,		&selfgcolor },
 	{ "selbackground",	STRING,		&selbgcolor },
-	// { "prompt",		STRING,		&prompt },
+	{ "lines",		INTEGER,	&lines },
+	{ "lineheight",		INTEGER,	&lineheight },
+	{ "centered",		INTEGER,	&centered },
+	{ "topbar",		INTEGER,	&topbar },
 };
 
 /* Characters not considered part of a word while deleting words
