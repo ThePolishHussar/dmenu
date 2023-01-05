@@ -53,10 +53,10 @@ static unsigned int preselected = 0;
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-	{ "font",        STRING, &font },
-	{ "normfgcolor", STRING, &normfgcolor },
-	{ "normbgcolor", STRING, &normbgcolor },
-	{ "selfgcolor",  STRING, &selfgcolor },
-	{ "selbgcolor",  STRING, &selbgcolor },
-	{ "prompt",      STRING, &prompt },
+	{ "font",		STRING,		&font },
+	{ "foreground",		STRING,		&normfgcolor },
+	{ "background",		STRING,		&normbgcolor },
+	{ "selforeground",	STRING,		&selfgcolor },
+	{ "selbackground",	STRING,		&selbgcolor },
+	// { "prompt",		STRING,		&prompt },
 };
