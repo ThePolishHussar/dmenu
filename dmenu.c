@@ -611,6 +611,13 @@ insert:
 		break;
 	case XK_Return:
 	case XK_KP_Enter:
+		if (restrict_return) {
+			if (!sel || ev->state & (ShiftMask | ControlMask))
+				break;
+			puts(sel->text);
+			cleanup();
+			exit(0);
+		}
 		puts((sel && !(ev->state & ShiftMask)) ? sel->text : text);
 		if (!(ev->state & ControlMask)) {
 			cleanup();
@@ -848,7 +855,7 @@ setup(void)
 static void
 usage(void)
 {
-	die("usage: dmenu [-bfirv] [-l lines] [-h height] [-p prompt] [-fn font] [-m monitor]\n"
+	die("usage: dmenu [-bfirRv] [-l lines] [-h height] [-p prompt] [-fn font] [-m monitor]\n"
 	    "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]");
 }
 
@@ -876,6 +883,8 @@ main(int argc, char *argv[])
 			fstrstr = strstr;
 		} else if (!strcmp(argv[i], "-r")) /* reject input which results in no match */
 			reject_no_match = 1;
+		else if (!strcmp(argv[i], "-R"))
+			restrict_return = 1;
 		else if (i + 1 == argc)
 			usage();
 		/* these options take one argument */

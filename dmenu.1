@@ -3,7 +3,7 @@
 dmenu \- dynamic menu
 .SH SYNOPSIS
 .B dmenu
-.RB [ \-bfsrv ]
+.RB [ \-bfsrRv ]
 .RB [ \-l
 .IR lines ]
 .RB [ \-h
@@ -54,6 +54,10 @@ dmenu matches menu items case sensitively.
 .TP
 .B \-r
 dmenu will reject any input which would result in no matching option left.
+.TP
+.B \-R
+disables ctr-return and shift-return. this guarantees that dmenu prints to
+stdout only once, and it only prints an item read from stdin.
 .TP
 .BI \-l " lines"
 dmenu lists items vertically, with the given number of lines.
